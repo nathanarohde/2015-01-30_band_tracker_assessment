@@ -30,3 +30,16 @@ get ('/band_edit/:id') do
 
   erb(:band_edit)
 end
+
+patch ('/assign_venues') do
+  @band = Band.find(params['id'])
+  @venues_ids = params['venues_ids']
+  if @venues_ids != nil
+    @venues_ids.each() do |venue_id|
+      venue = Venue.find(venue_id)
+      @band.venues << venue
+    end
+  end
+
+  redirect('/')
+end

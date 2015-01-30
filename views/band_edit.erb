@@ -1,1 +1,25 @@
-<p>Hello world.</p>
+<h3><%= @band.name %></h3>
+<br>
+<% @band.venues.each() do |venue| %>
+<h4><%= venue.location %></h4>
+<% end %>
+<br>
+
+<p>Edit band or assign locations</p>
+
+<form action='/assign_venues' method='post'>
+  <input type='hidden' name='_method' value='patch'
+  <% @venues.each() do |venue| %>
+    <div class='checkbox'>
+      <label>
+        <input type='checkbox' name='venues_ids[]' value='<%= venue.id() %>'> <%= venue.location %>
+      </label>
+    </div>
+    <% end %>
+    <input type="hidden" name="id" value="<%= @band.id %>">
+    <button type='submit'>Assign venues to band.</button>
+  </form>
+
+  <br>
+
+  <a href='/'>Return to Main Page</a>
