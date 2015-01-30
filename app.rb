@@ -43,3 +43,16 @@ patch ('/assign_venues') do
 
   redirect('/')
 end
+
+delete ('/delete_band') do
+  @band = Band.find(params['id'])
+  @band.destroy()
+  redirect('/')
+end
+
+patch ('/edit_band') do
+  name = params['band_name']
+  @band = Band.find(params['id'])
+  @band.update({:name => name})
+  redirect('/')
+end

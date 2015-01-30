@@ -18,8 +18,30 @@
     <% end %>
     <input type="hidden" name="id" value="<%= @band.id %>">
     <button type='submit'>Assign venues to band.</button>
-  </form>
+</form>
+
+<br>
+<br>
+
+<form action='/edit_band' method='post'>
+  <input type= 'hidden' name='id' value='<%= @band.id %>'>
+  <input type= 'hidden' name='_method' value='patch'>
+  <label for='band_name'>Change the band's name.</label>
+  <input id='band_name' name='band_name' type='text'>
+
+
+  <button type='submit'>Change the band's name.</button>
+</form>
+
+<br>
+
+<form action='/delete_band' method='post'>
+  <input type='hidden' name='_method' value='delete'>
+  <input type="hidden" name="id" value="<%= @band.id %>">
+
+  <button type='submit'>Delete the band</button>
+</form>
 
   <br>
 
-  <a href='/'>Return to Main Page</a>
+<a href='/'>Return to Main Page</a>
