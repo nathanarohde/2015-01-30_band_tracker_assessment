@@ -1,11 +1,49 @@
 <h3>Crappy band tracker webpage</h3>
 <br>
+<h4>Some crappy band</h4>
 <% if @bands.any? %>
   <% @bands.each() do |band| %>
   <ul>
-    <li><a href="/band_add/<%= band.id %>"><%= band.name %> </a></li>
+    <li><%= band.name %><a href="/band_edit/<%= band.id %>"><button type="submit">Edit band/assign venues</button></a></li>
   </ul>
   <% end %>
   <%else %>
     <p> No bands have been entered yet. </p>
 <% end %>
+
+<br>
+
+<form action='/band_add' method='post'>
+  <label for='band_name'>Enter a band name:</label>
+  <input type='text' name='band_name' id='band_name'>
+
+  <br>
+
+  <button type='submit'>Add band</button>
+
+</form>
+
+<br>
+
+<h4> Some crappy place</h4>
+<%if @venues.any? %>
+  <% @venues.each() do |venue| %>
+  <ul>
+    <li><%= venue.location %> </li>
+  </ul>
+  <% end %>
+  <% else %>
+    <p> No venues have been entered yet. </p>
+  <% end %>
+
+  <br>
+
+<form action='/venue_add' method='post'>
+    <label for='venue_location'>Enter a venue name:</label>
+    <input type='text' name='venue_location' id='venue_location'>
+
+    <br>
+
+    <button type='submit'>Add venue</button>
+
+</form>
