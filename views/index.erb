@@ -1,0 +1,11 @@
+<h3>Crappy band tracker webpage</h3>
+<br>
+<% if @bands.any? %>
+  <% @bands.each() do |band| %>
+  <ul>
+    <li><a href="/band_add/<%= band.id %>"><%= band.name %> </a></li>
+  </ul>
+  <% end %>
+  <%else %>
+    <p> No bands have been entered yet. </p>
+<% end %>
