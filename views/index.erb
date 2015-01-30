@@ -3,12 +3,12 @@
 <h4>Some crappy band</h4>
 <% if @bands.any? %>
   <% @bands.each() do |band| %>
-  <ul>
-    <li><%= band.name %><a href="/band_edit/<%= band.id %>"><button type="submit">Edit band/assign venues</button></a></li>
-  </ul>
+    <ul>
+      <li><%= band.name %><a href="/band_edit/<%= band.id %>"><button type="submit">Edit band/assign venues</button></a></li>
+    </ul>
   <% end %>
-  <%else %>
-    <p> No bands have been entered yet. </p>
+<%else %>
+  <p> No bands have been entered yet. </p>
 <% end %>
 
 <br>
@@ -28,22 +28,22 @@
 <h4> Some crappy place</h4>
 <%if @venues.any? %>
   <% @venues.each() do |venue| %>
-  <ul>
-    <li><%= venue.location %> </li>
-  </ul>
+    <ul>
+      <li><%= venue.location %> </li>
+    </ul>
   <% end %>
   <% else %>
     <p> No venues have been entered yet. </p>
-  <% end %>
+<% end %>
 
-  <br>
+<br>
 
 <form action='/venue_add' method='post'>
-    <label for='venue_location'>Enter a venue name:</label>
-    <input type='text' name='venue_location' id='venue_location'>
+  <label for='venue_location'>Enter a venue name:</label>
+  <input type='text' name='venue_location' id='venue_location'>
 
-    <br>
+<br>
 
-    <button type='submit'>Add venue</button>
+  <button type='submit'>Add venue</button>
 
 </form>
