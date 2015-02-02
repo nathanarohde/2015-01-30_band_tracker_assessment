@@ -9,4 +9,9 @@ describe(Band) do
     band = Band.create({:name => "hamster mutiny"})
     expect(band.name).to(eq("Hamster mutiny"))
   end
+
+  it("doesn't crate an entry if input is empty") do
+    band = Band.create({:name => ""})
+    expect(Band.all).to(eq([]))
+  end
 end
